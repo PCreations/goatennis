@@ -10,5 +10,9 @@
   },
   "scripts": {
     "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "supertest": "^4.0.2"
   }
 }
