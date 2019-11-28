@@ -1,5 +1,6 @@
 const request = require("supertest");
 const { makeApp } = require("../server");
+const playersFixture = require("./fixture.json");
 
 describe("GET /players", () => {
   it("should return a 200 http response with correct header", async () => {
@@ -39,5 +40,14 @@ describe("GET /players", () => {
         foo: "bar"
       }
     ]);
+  });
+  test("given a static json file as data it should return the correct response", async () => {
+    const app = makeApp({
+      getDataAsync: () => Promise.resolve(playersFixture.players)
+    });
+    const response = await request(app).get("/players");
+    expect(response.body).toMatchSnapshot(
+      "players should be returned by ascending order"
+    );
   });
 });

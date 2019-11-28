@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GET /players given a static json file as data it should return the correct response: players should be returned by ascending order 1`] = `
+Array [
+  Object {
+    "country": Object {
+      "code": "ESP",
+      "picture": "https://i.eurosport.com/_iss_/geo/country/flag/large/2203.png",
+    },
+    "data": Object {
+      "age": 33,
+      "height": 185,
+      "last": Array [
+        1,
+        0,
+        0,
+        0,
+        1,
+      ],
+      "points": 1982,
+      "rank": 1,
+      "weight": 85000,
+    },
+    "firstname": "Rafael",
+    "id": 17,
+    "lastname": "Nadal",
+    "picture": "https://i.eurosport.com/_iss_/person/pp_clubteam/large/435121.jpg",
+    "sex": "M",
+    "shortname": "R.NAD",
+  },
+  Object {
+    "country": Object {
+      "code": "SRB",
+      "picture": "https://i.eurosport.com/_iss_/geo/country/flag/medium/6944.png",
+    },
+    "data": Object {
+      "age": 31,
+      "height": 188,
+      "last": Array [
+        1,
+        1,
+        1,
+        1,
+        1,
+      ],
+      "points": 2542,
+      "rank": 2,
+      "weight": 80000,
+    },
+    "firstname": "Novak",
+    "id": 52,
+    "lastname": "Djokovic",
+    "picture": "https://i.eurosport.com/_iss_/person/pp_clubteam/large/565920.jpg",
+    "sex": "M",
+    "shortname": "N.DJO",
+  },
+  Object {
+    "country": Object {
+      "code": "SUI",
+      "picture": "https://i.eurosport.com/_iss_/geo/country/flag/large/2213.png",
+    },
+    "data": Object {
+      "age": 33,
+      "height": 183,
+      "last": Array [
+        1,
+        1,
+        1,
+        0,
+        1,
+      ],
+      "points": 1784,
+      "rank": 21,
+      "weight": 81000,
+    },
+    "firstname": "Stan",
+    "id": 65,
+    "lastname": "Wawrinka",
+    "picture": "https://i.eurosport.com/_iss_/person/pp_clubteam/large/325225.jpg",
+    "sex": "M",
+    "shortname": "S.WAW",
+  },
+  Object {
+    "country": Object {
+      "code": "USA",
+      "picture": "https://i.eurosport.com/_iss_/person/pp_clubteam/large/136449.jpg",
+    },
+    "data": Object {
+      "age": 38,
+      "height": 185,
+      "last": Array [
+        0,
+        1,
+        0,
+        0,
+        1,
+      ],
+      "points": 1105,
+      "rank": 52,
+      "weight": 74000,
+    },
+    "firstname": "Venus",
+    "id": 95,
+    "lastname": "Williams",
+    "picture": "https://i.eurosport.com/_iss_/person/pp_clubteam/large/136450.jpg",
+    "sex": "F",
+    "shortname": "V.WIL",
+  },
+  Object {
+    "country": Object {
+      "code": "USA",
+      "picture": "https://i.eurosport.com/_iss_/geo/country/flag/medium/2209.png",
+    },
+    "data": Object {
+      "age": 37,
+      "height": 175,
+      "last": Array [
+        0,
+        1,
+        1,
+        1,
+        0,
+      ],
+      "points": 3521,
+      "rank": 10,
+      "weight": 72000,
+    },
+    "firstname": "Serena",
+    "id": 102,
+    "lastname": "Williams",
+    "picture": "https://i.eurosport.com/_iss_/person/pp_clubteam/large/136450.jpg",
+    "sex": "F",
+    "shortname": "S.WIL",
+  },
+]
+`;
