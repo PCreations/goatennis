@@ -1,5 +1,5 @@
 const request = require("supertest");
-const { create: createServer } = require("../server/create");
+const { create: createServer } = require("../server");
 const playersFixture = require("./fixture.json");
 
 describe("GET /players", () => {

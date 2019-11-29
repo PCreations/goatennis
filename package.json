@@ -7,11 +7,12 @@
   "license": "MIT",
   "devDependencies": {
     "convict": "^5.2.0",
+    "firebase-tools": "^7.8.1",
     "jest": "^24.9.0"
   },
   "scripts": {
     "test": "jest",
-    "start": "node ./src/server"
+    "start": "node ./src"
   },
   "dependencies": {
     "dotenv": "^8.2.0",

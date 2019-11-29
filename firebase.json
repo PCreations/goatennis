@@ -1,0 +1,5 @@
+{
+  "functions": {
+    "predeploy": ["cp ./src/server/create.js ./functions/lib/server/"]
+  }
+}
