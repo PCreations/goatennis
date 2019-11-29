@@ -4,7 +4,7 @@ const playersFixture = require("./fixture.json");
 
 describe("GET /players", () => {
   it("should return a 200 http response with correct header", async () => {
-    const app = makeApp();
+    const app = makeApp({ getDataAsync: () => Promise.resolve([]) });
     const response = await request(app).get("/players");
     const contentTypeHeader = response.get("Content-Type");
     expect(contentTypeHeader).toContain("application/json");
@@ -51,6 +51,14 @@ describe("GET /players", () => {
       getDataAsync: () => Promise.resolve(playersFixture.players)
     });
     const response = await request(app).get("/players");
+    expect(response.body).toMatchSnapshot(
+      "players should be returned by ascending order"
+    );
+  });
+  test("given the default implementation it should return correct data", async () => {
+    const app = makeApp();
+    const response = await request(app).get("/players");
+    expect(response.statusCode).toEqual(200);
     expect(response.body).toMatchSnapshot(
       "players should be returned by ascending order"
     );

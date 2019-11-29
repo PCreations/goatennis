@@ -1,4 +1,13 @@
 const express = require("express");
+const fetch = require("node-fetch");
+
+const DATA_URL =
+  "https://eurosportdigital.github.io/eurosport-node-developer-recruitment/headtohead.json";
+
+const defaultGetDataAsync = () =>
+  fetch(DATA_URL)
+    .then(res => res.json())
+    .then(data => data.players);
 
 const byIdAsc = ({ id: idA }, { id: idB }) =>
   parseInt(idA, 10) - parseInt(idB, 10);
@@ -6,7 +15,7 @@ const byIdAsc = ({ id: idA }, { id: idB }) =>
 const byId = playerId => player =>
   parseInt(player.id, 10) === parseInt(playerId, 10);
 
-const makeApp = ({ getDataAsync = () => Promise.resolve([]) } = {}) => {
+const makeApp = ({ getDataAsync = defaultGetDataAsync } = {}) => {
   const app = express();
 
   app.get("/players", async (_, res) => {
