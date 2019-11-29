@@ -19,4 +19,9 @@ describe("GET /players/<id>", () => {
     expect(response.statusCode).toEqual(200);
     expect(response.body).toEqual(players[0]);
   });
+  it("should return a 500 if there is an error while retrieving data", async () => {
+    const app = makeApp({ getDataAsync: () => Promise.reject() });
+    const response = await request(app).get("/players/42");
+    expect(response.status).toBe(500);
+  });
 });

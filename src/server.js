@@ -10,19 +10,29 @@ const makeApp = ({ getDataAsync = () => Promise.resolve([]) } = {}) => {
   const app = express();
 
   app.get("/players", async (_, res) => {
-    const data = await getDataAsync();
-    data.sort(byIdAsc);
-    res.status(200).json(data);
+    try {
+      const data = await getDataAsync();
+      res.status(200).json(data.sort(byIdAsc));
+    } catch (_) {
+      res.sendStatus(500);
+    }
   });
 
   app.get("/players/:playerId", async (req, res) => {
-    const data = await getDataAsync();
+    let data;
+    try {
+      data = await getDataAsync();
+    } catch (_) {
+      res.sendStatus(500);
+      return;
+    }
     const { playerId } = req.params;
     const player = data.find(byId(playerId));
     if (player) {
       res.status(200).json(player);
+    } else {
+      res.status(404).send();
     }
-    res.status(404).send();
   });
 
   return app;

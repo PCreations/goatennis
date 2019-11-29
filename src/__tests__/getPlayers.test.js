@@ -9,6 +9,11 @@ describe("GET /players", () => {
     const contentTypeHeader = response.get("Content-Type");
     expect(contentTypeHeader).toContain("application/json");
   });
+  it("should return a 500 if there is an error while retrieving data", async () => {
+    const app = makeApp({ getDataAsync: () => Promise.reject() });
+    const response = await request(app).get("/players");
+    expect(response.status).toBe(500);
+  });
   test("given a list of data it should return the list of data ordered by id", async () => {
     const data = [
       {
