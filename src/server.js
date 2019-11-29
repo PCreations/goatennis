@@ -6,10 +6,14 @@ const byIdAsc = ({ id: idA }, { id: idB }) =>
 const makeApp = ({ getDataAsync = () => Promise.resolve([]) } = {}) => {
   const app = express();
 
-  app.use("/players", async (_, res) => {
+  app.get("/players", async (_, res) => {
     const data = await getDataAsync();
     data.sort(byIdAsc);
     res.status(200).json(data);
+  });
+
+  app.get("/players/:playerId", async (_, res) => {
+    res.status(404).send();
   });
 
   return app;
