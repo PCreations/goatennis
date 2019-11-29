@@ -19,7 +19,9 @@ A very simple API to get info about some of the greatest tennis players of all t
 
 ## Testing online
 
-The project is deployed on firebase cloud functions. The api is accessible at this url : https://us-central1-goatennis-16345.cloudfunctions.net/api/
+The project is deployed on firebase cloud functions. The api is accessible at this url : https://us-central1-goatennis-16345.cloudfunctions.net/api/ :
+- list of players : https://us-central1-goatennis-16345.cloudfunctions.net/api/players
+- specific player : https://us-central1-goatennis-16345.cloudfunctions.net/api/players/17
 
 ## Tests
 
