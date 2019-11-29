@@ -15,7 +15,7 @@ const byIdAsc = ({ id: idA }, { id: idB }) =>
 const byId = playerId => player =>
   parseInt(player.id, 10) === parseInt(playerId, 10);
 
-const makeApp = ({ getDataAsync = defaultGetDataAsync } = {}) => {
+const create = ({ getDataAsync = defaultGetDataAsync } = {}) => {
   const app = express();
 
   app.get("/players", async (_, res) => {
@@ -48,5 +48,5 @@ const makeApp = ({ getDataAsync = defaultGetDataAsync } = {}) => {
 };
 
 module.exports = {
-  makeApp
+  create
 };

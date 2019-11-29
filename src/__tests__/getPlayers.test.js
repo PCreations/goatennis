@@ -1,17 +1,17 @@
 const request = require("supertest");
-const { makeApp } = require("../server");
+const { create: createServer } = require("../server/create");
 const playersFixture = require("./fixture.json");
 
 describe("GET /players", () => {
   it("should return a 200 http response with correct header", async () => {
-    const app = makeApp({ getDataAsync: () => Promise.resolve([]) });
-    const response = await request(app).get("/players");
+    const server = createServer({ getDataAsync: () => Promise.resolve([]) });
+    const response = await request(server).get("/players");
     const contentTypeHeader = response.get("Content-Type");
     expect(contentTypeHeader).toContain("application/json");
   });
   it("should return a 500 if there is an error while retrieving data", async () => {
-    const app = makeApp({ getDataAsync: () => Promise.reject() });
-    const response = await request(app).get("/players");
+    const server = createServer({ getDataAsync: () => Promise.reject() });
+    const response = await request(server).get("/players");
     expect(response.status).toBe(500);
   });
   test("given a list of data it should return the list of data ordered by id", async () => {
@@ -29,8 +29,8 @@ describe("GET /players", () => {
         foo: "foobaz"
       }
     ];
-    const app = makeApp({ getDataAsync: () => Promise.resolve(data) });
-    const response = await request(app).get("/players");
+    const server = createServer({ getDataAsync: () => Promise.resolve(data) });
+    const response = await request(server).get("/players");
     expect(response.body).toEqual([
       {
         id: 1,
@@ -47,17 +47,17 @@ describe("GET /players", () => {
     ]);
   });
   test("given a static json file as data it should return the correct response", async () => {
-    const app = makeApp({
+    const server = createServer({
       getDataAsync: () => Promise.resolve(playersFixture.players)
     });
-    const response = await request(app).get("/players");
+    const response = await request(server).get("/players");
     expect(response.body).toMatchSnapshot(
       "players should be returned by ascending order"
     );
   });
   test("given the default implementation it should return correct data", async () => {
-    const app = makeApp();
-    const response = await request(app).get("/players");
+    const server = createServer();
+    const response = await request(server).get("/players");
     expect(response.statusCode).toEqual(200);
     expect(response.body).toMatchSnapshot(
       "players should be returned by ascending order"
