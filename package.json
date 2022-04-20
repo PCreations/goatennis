@@ -6,7 +6,7 @@
   "author": "Pierre Criulanscy <pcriulan@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "convict": "^5.2.0",
+    "convict": "^6.2.2",
     "firebase-tools": "^7.8.1",
     "jest": "^24.9.0"
   },
